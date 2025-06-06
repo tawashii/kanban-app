@@ -16,14 +16,14 @@ Object.defineProperty(window, 'matchMedia', {
 });
 
 // crypto.randomUUIDのmock
-Object.defineProperty(global, 'crypto', {
+Object.defineProperty(globalThis, 'crypto', {
   value: {
     randomUUID: () => Math.random().toString(36).substr(2, 9),
   },
 });
 
 // ResizeObserverのmock
-global.ResizeObserver = class ResizeObserver {
+globalThis.ResizeObserver = class ResizeObserver {
   observe() {}
   unobserve() {}
   disconnect() {}

@@ -159,10 +159,11 @@ describe('KanbanStore', () => {
 
     expect(todoColumn?.tasks).toHaveLength(2)
     const duplicatedTask = todoColumn?.tasks[1]
-    expect(duplicatedTask.title).toBe('Original Task (コピー)')
-    expect(duplicatedTask.description).toBe('To be duplicated')
-    expect(duplicatedTask.priority).toBe('high')
-    expect(duplicatedTask.id).not.toBe(originalTaskId)
+    expect(duplicatedTask).toBeDefined()
+    expect(duplicatedTask?.title).toBe('Original Task (コピー)')
+    expect(duplicatedTask?.description).toBe('To be duplicated')
+    expect(duplicatedTask?.priority).toBe('high')
+    expect(duplicatedTask?.id).not.toBe(originalTaskId)
   })
 
   it('should archive and restore task', () => {

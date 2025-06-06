@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { KanbanBoard } from '../KanbanBoard'
 import type { Column } from '../../types'
@@ -226,7 +226,8 @@ describe('KanbanBoard', () => {
   it('displays tag options in filter dropdown', () => {
     render(<KanbanBoard />)
     
-    const tagSelect = screen.getByDisplayValue('すべて')
+    // タグセレクトが表示されている
+    expect(screen.getByDisplayValue('すべて')).toBeInTheDocument()
     
     // タグオプションが表示されている
     expect(screen.getByText('Frontend')).toBeInTheDocument()
